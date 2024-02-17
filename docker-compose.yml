@@ -7,7 +7,8 @@ services:
         build:
             context: ../unifametro_frameworkweb
             dockerfile: Dockerfile
-        command: python manage.py runserver 0.0.0.0:8000
+        #command: python manage.py runserver 0.0.0.0:8000
+        command: ["sh", "-c", "pip install --root-user-action=ignore psycopg2-binary && python manage.py runserver 0.0.0.0:8000"]
         volumes:
             - .:/usr/src/unifametro_frameworkweb
         ports:

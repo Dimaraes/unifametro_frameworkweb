@@ -1,6 +1,6 @@
 # pull official base image
 FROM python:3.10.6-alpine
-
+USER root
 # set work directory
 WORKDIR /usr/src/unifametro_frameworkweb
 ENV WORKDIR /usr/src/unifametro_frameworkweb
@@ -11,11 +11,12 @@ ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies
 RUN apk update \
- && apk add postgresql-dev gcc python3-dev musl-dev
+ && apk add postgresql-dev gcc python3-dev musl-dev libpq-dev
  
 # install dependencies 
 RUN pip install --upgrade pip 
 COPY ./requirements.txt . 
+RUN pip install --root-user-action=ignore psycopg2-binary
 RUN pip install -r requirements.txt 
 
 # copy project
