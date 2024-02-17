@@ -13,4 +13,5 @@ class OvinoForm(forms.ModelForm):
             "raca",
             "cor",
             "genero",
+            "tag",
         ]
