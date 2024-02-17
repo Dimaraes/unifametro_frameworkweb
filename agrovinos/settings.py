@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     "ovino",
     "tag",
     "sekizai", 
-    "widget_tweaks"
-    'rest_framework', 
+    "widget_tweaks",
+    "rest_framework" 
 ]
 
 MIDDLEWARE = [
